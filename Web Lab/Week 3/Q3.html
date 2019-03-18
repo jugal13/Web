@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 3</title>
+    <script type="text/javascript">
+    function validate() {
+        name = document.getElementById("name").value;
+        usr = document.getElementById("usr").value;
+        pswd = document.getElementById("pswd").value;
+        rpswd = document.getElementById("rpswd").value;
+        mail = document.getElementById("mail").value;
+        dob = parseInt(document.getElementById("dob").value);
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        if (!(pswd === rpswd)) {
+            alert("Passwords do not match");
+        }
+        if (usr == "" || pswd == "" || rpswd == "" || mail == "") {
+            alert("Empty fields found");
+        }
+        if (reg.test(mail) == false) {
+            alert('Invalid Email Address');
+        }
+        if (dob > 2000 || dob < 1900) {
+            alert("Inavalid year of birth");
+        }
+    }
+    </script>
+</head>
+<body>
+    <form>
+        Name:<input type="text" id="name" /><br><br>
+        Username:<input type"text" id="usr" /><br><br>
+        Password:<input type="password" id="pswd" /><br><br>
+        Confirm:<input type="password" id="rpswd" /><br><br>
+        Year of birth:<input type="text" id="dob" /><br><br>
+        E-mail:<input type="text" id="mail" /><br><br>
+        <input type="submit" value="click" onclick="validate()" /><br>
+    </form>
+</body>
+</html>

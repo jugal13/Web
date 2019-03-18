@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 6</title>
+    <script>
+    var arr = [];
+    class Animal {
+        constructor(name, sound, speed) {
+            this.name = name;
+            this.sound = sound;
+            this.speed = speed;
+        }
+        makeSound() {
+            console.log(this.sound)
+        }
+        run(time) {
+            var that = this;
+            return new Promise(function (resolve, reject) {
+                setTimeout( function() { 
+                    console.log(that.speed * time, that.name); arr.push(that.speed * time); 
+                }, (time) * 1000);
+            });
+        }
+    }
+    var monkey = new Animal("monkey", 6, 2)
+    var dinosaur = new Animal("dinosaur", 20, 9)
+    var cheetah = new Animal("cheetah", 30, 5)
+    var elephant = new Animal("elephant", 20, 3)
+    var human = new Animal("human", 5, 4)
+    var obj = [monkey, dinosaur, cheetah, elephant, human]
+    for (var i = 0; i < obj.length; ++i) {
+        console.log(obj[i].run(5))
+    }
+    setTimeout(function() { 
+        console.log(obj[arr.indexOf(Math.max(...arr))].name, 'went farthest with distance ', Math.max(...arr))
+    }, 6000);
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 5</title>
+    <script>
+    function triangle(a,b,c) {
+        this.a=a;
+        this.b=b;
+        this.c=c;
+    }
+    var shape = new Object();
+    shape.type='triangle';
+    shape.constructor = triangle.prototype.constructor;
+    triangle.prototype = shape;
+    triangle.prototype.getPerimeter = function() {
+        return (this.a+this.b+this.c);
+    }
+    // Output
+    var t = new triangle(1, 2, 3);
+    console.log(t.constructor === triangle);
+    // true
+    console.log(shape.isPrototypeOf(t));
+    // true
+    console.log(t.getPerimeter());
+    // 6
+    console.log(t.type);
+    // triangle
+    </script>
+</head>
+<body>
+</body>
+</html>

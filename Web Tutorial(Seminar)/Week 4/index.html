@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Week 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css"> <!-- Order of Tags Matter for Styling -->
+    <script src="main.js"></script> <!-- Source for js script -->
+</head>
+<body>
+    <div>
+        <button id="testButton">Test</button> <!-- Button to page -->
+        <ul> <!-- Unordered list -->
+            <li>One</li>
+            <li>Two</li>
+        </ul>
+    </div>
+    <div>
+        <select> <!-- drop down menu -->
+            <option>One</option>
+            <option>Two</option>
+        </select>
+        <input type="text" /> <!-- input text box-->
+        <input id="checkBox" type="checkbox" /> <!-- input check box -->
+        <label id="labelFor" for="checkBox">Check me</label> <!-- clickable label for check box-->
+        <!-- <label><input type="checkbox" />Check me</label> --> <!-- alternate clickable label for checkbox-->
+    </div>
+    <div>I'm a div</div> <!-- div is display block -->
+    <span>I'm a span</span> <!-- span is display inline -->
+
+    <div class="container test"> <!-- multiple classes to one tag-->
+        <div class="child">Child One</div>
+        <div class="child">Child Two</div>
+    </div>
+
+    <div>
+        <div class="child"> <!-- To demonstate !important in css-->
+            Deep
+        </div>
+    </div>
+
+    <div class="flexParent"> <!-- to use with flexbox css property-->
+        <div class="flexChidl">One</div>
+        <div class="flexChidl">Two</div>
+        <div class="flexChidl">Three</div>
+    </div>
+
+    <!-- emmet div>div+div -->
+    <!-- > is for child -->
+    <!-- + is for sibling -->
+    <!-- * is for number -->
+    <!-- [] is for attributes -->
+    <!-- . is for class names -->
+    <!-- # is for id names -->
+</body>
+</html>

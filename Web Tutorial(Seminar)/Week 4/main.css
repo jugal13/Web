@@ -1,0 +1,30 @@
+button {
+    /* CSS for all buttons in html page */
+    background-color: yellow;
+}
+
+#checkBox, #labelFor {
+    /* CSS for elements with id checkBox and labelFor */
+    background-color: blueviolet;
+}
+
+.container .test {
+    /* Add css to element test inside container */
+    background-color: pink;
+}
+
+.container > .child {
+    /* Add css to element child inside container */
+    color: #000FFF;
+}
+
+.child {
+    /* !important is to force all tags containing this class or id or this tag to follow  */
+    color: red !important;
+}
+
+.flexParent {
+    /* Display using flex box and justify content of flex box */
+    display: flex; 
+    justify-content: space-between;
+}
