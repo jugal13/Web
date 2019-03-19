@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 6</title>
+    <script>
+    function calculator(num) {
+        this.num = num;
+    }
+    calculator.prototype.add = function(n) {
+        this.num +=n
+        return this;
+    }
+    calculator.prototype.subtract = function(n) {
+        this.num -= n;
+        return this;
+    }
+    calculator.prototype.getAnswer = function() {
+        return this.num;
+    }
+    console.log(new calculator(2).add(2).add(2).subtract(3).getAnswer());
+    </script>
+</head>
+<body>
+</body>
+</html>
