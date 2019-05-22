@@ -1,0 +1,26 @@
+Modules - top level of angular stack
+Components - indivial parts of app with ui input and output
+Templates & Directives - helps writing ui
+Services & dependecy injection - services helps write business logic, dependecy injection is injection of dependecies in the app components
+
+Documentation:
+angular.io
+cli.angular.io
+material.angular.io
+
+installation
+node from nodejs.org
+npm install -g @angular/cli
+
+app layout
+
+app 
+
+scorecard
+
+gamearea
+    player details  game    player details
+
+controls
+
+selector name is called kebab case

@@ -62,6 +62,7 @@ let fido = new Dog("Fido", "Bow!");
 fido.run();
 
 // classes is a keyword in JS works internally as the example above
+// ES6 Syntax for classes in JS
 
 class Animal {
     name;
