@@ -1,49 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html ng-app="myApp">
- <head>
- <title> Angular MVC app </title>
- <script src="public/angular/angular.min.js"></script>
- </head>
- <body>
-<div ng-controller="HelloController">
- English:
- <input type="text" ng-model="username">
- <div ng-click="clear()">
- Clear Username
- </div>
- <div>
- Hello,
- <span>
- {{ username }}
- </span>
-
- </div>
- </div>
- <br>
- <br>
- <div ng-controller="HelloController">
- Spanish:
- <input type="text" ng-model="username">
- <div ng-click="clear()">
- Clear Username
- </div>
- <div>
- Hola,
- <span>
- {{ username }}
- </span>
- </div>
- </div>
- <script>
- var myModule= angular.module('myApp', []);
- myModule.controller("HelloController",
- function HelloController($scope) {
- $scope.username = "";
- $scope.clear = function() {
- $scope.username = "";
- };
- })
- </script>
-
-</body>
+  <head>
+    <title>Angular MVC app</title>
+    <script src="public/angular/angular.min.js"></script>
+  </head>
+  <body>
+    <div ng-controller="HelloController">
+      English:
+      <input type="text" ng-model="username" />
+      <div ng-click="clear()">
+        Clear Username
+      </div>
+      <div>
+        Hello,
+        <span>
+          {{ username }}
+        </span>
+      </div>
+    </div>
+    <br />
+    <br />
+    <div ng-controller="HelloController">
+      Spanish:
+      <input type="text" ng-model="username" />
+      <div ng-click="clear()">
+        Clear Username
+      </div>
+      <div>
+        Hola,
+        <span>
+          {{ username }}
+        </span>
+      </div>
+    </div>
+    <script>
+      var myModule = angular.module("myApp", []);
+      myModule.controller("HelloController", function HelloController($scope) {
+        $scope.username = "";
+        $scope.clear = function() {
+          $scope.username = "";
+        };
+      });
+    </script>
+  </body>
 </html>

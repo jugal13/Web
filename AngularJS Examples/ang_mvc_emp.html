@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
-<head>
- <script src="public/angular/angular.min.js"></script>
- <script>
- var myModule = angular.module("myApp", []);
- //Controller
- myModule.controller("MyFirstCtrl",
- function MyFirstCtrl($scope) {
- // Model
- var employees = ['Catherine Grant', 'Monica Grant', 'Christopher Grant', 'Jennifer Grant'
- ];
- $scope.ourEmployees = employees;
- }
- )
- </script>
-</head>
-<body ng-controller='MyFirstCtrl'>
- <h2>Number of Employees: {{ ourEmployees.length}}</h2>  <!-- View -->
-  <p ng-repeat="employee in ourEmployees">{{employee}}</p>
-  <p ng-cloak>{{ 2 + 2 }}</p>
-</body>
+  <head>
+    <script src="public/angular/angular.min.js"></script>
+    <script>
+      var myModule = angular.module("myApp", []);
+      //Controller
+      myModule.controller("MyFirstCtrl", function MyFirstCtrl($scope) {
+        // Model
+        var employees = [
+          "Catherine Grant",
+          "Monica Grant",
+          "Christopher Grant",
+          "Jennifer Grant"
+        ];
+        $scope.ourEmployees = employees;
+      });
+    </script>
+  </head>
+  <body ng-controller="MyFirstCtrl">
+    <h2>Number of Employees: {{ ourEmployees.length}}</h2>
+    <!-- View -->
+    <p ng-repeat="employee in ourEmployees">{{employee}}</p>
+    <p ng-cloak>{{ 2 + 2 }}</p>
+  </body>
 </html>
-
-
-

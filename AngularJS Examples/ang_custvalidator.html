@@ -1,81 +1,131 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
-    <head>
-        <meta charset="UTF-8">
-        <title>Custom validation</title>
-		<script type="text/javascript" src="public/angular/angular.js"></script>
-        <script type="text/javascript" src="public/angular/angular-messages.js"></script>
-    </head>
-    <body>
-	
-        <form name="sampleForm" novalidate>
-			Username
-			<input type="text" name="username" ng-model="employee.username" ng-minlength="6" ng-maxlength="12" required>
-			<div ng-messages="sampleForm.username.$error">
-			<p ng-message="minlength">Username should have at least 6 characters.</p>
-			<p ng-message="maxlength">Username should have at most 12 characters.</p>
-			<p ng-message="required">Providing a username is mandatory.</p>
-			</div><br />
-            E-mail : <input type="email" name="empEmail" ng-model="employee.email" ng-required="true"/><br /><br />
-    				<div ng-show="sampleForm.$submitted || sampleForm.empEmail.$touched">
-      					<span style="color:orange" ng-show="sampleForm.empEmail.$error.required">Please enter an email-id.</span>
-      					<span style="color:red" ng-show="sampleForm.empEmail.$error.email">This is not a valid email.</span>
-    				</div>
-			Mobile No <input type="text" required maxlength="10" ng-pattern="/^[7-9][0-9]{9}$/" name="mobileno" ng-model="employee.mobileno" /> <br/><br/>                       
-                <span style="color:red" ng-show="form.mobileno.$dirty && form.mobileno.$invalid" class="ng-hide">   
-                   Please Enter Valid  Mobile No.!  
-                </span> 
-			Enter a Secret code: <input name="strongSecret" type="text" ng-model="employee.strongSecret" strong-secret required>
-            <dir ng-messages="sampleForm.strongSecret.$error">
-            	<div ng-message="numberValidator">Strong secret has to contain at least 1 number</div>
-            	<div ng-message="uppercaseValidator">Strong secret has to contain at least 1 uppercase</div>
-            	<div ng-message="sixCharactersValidator">Strong secret has to exactly 6 characters long</div>
-            </dir>
-			<input type="submit" ng-disabled="sampleForm.$invalid" ng-click="save(employee)" value="Submit" />
-			
-        </form>
-		<p>Employee Form = {{employee | json}}</p>
-  		<p>Master = {{master | json}}</p>
-		
-        
-<script type="text/javascript">
-angular.module('app', ['ngMessages']);
-angular.module('app').directive('strongSecret', function() {
-    return {
-        restrict: 'A',
-        require: 'ng-model',
-        link: function(scope, element, attr, ctrl) {
+  <head>
+    <meta charset="UTF-8" />
+    <title>Custom validation</title>
+    <script type="text/javascript" src="public/angular/angular.js"></script>
+    <script
+      type="text/javascript"
+      src="public/angular/angular-messages.js"
+    ></script>
+  </head>
+  <body>
+    <form name="sampleForm" novalidate>
+      Username
+      <input
+        type="text"
+        name="username"
+        ng-model="employee.username"
+        ng-minlength="6"
+        ng-maxlength="12"
+        required
+      />
+      <div ng-messages="sampleForm.username.$error">
+        <p ng-message="minlength">
+          Username should have at least 6 characters.
+        </p>
+        <p ng-message="maxlength">
+          Username should have at most 12 characters.
+        </p>
+        <p ng-message="required">Providing a username is mandatory.</p>
+      </div>
+      <br />
+      E-mail :
+      <input
+        type="email"
+        name="empEmail"
+        ng-model="employee.email"
+        ng-required="true"
+      /><br /><br />
+      <div ng-show="sampleForm.$submitted || sampleForm.empEmail.$touched">
+        <span style="color:orange" ng-show="sampleForm.empEmail.$error.required"
+          >Please enter an email-id.</span
+        >
+        <span style="color:red" ng-show="sampleForm.empEmail.$error.email"
+          >This is not a valid email.</span
+        >
+      </div>
+      Mobile No
+      <input
+        type="text"
+        required
+        maxlength="10"
+        ng-pattern="/^[7-9][0-9]{9}$/"
+        name="mobileno"
+        ng-model="employee.mobileno"
+      />
+      <br /><br />
+      <span
+        style="color:red"
+        ng-show="form.mobileno.$dirty && form.mobileno.$invalid"
+        class="ng-hide"
+      >
+        Please Enter Valid Mobile No.!
+      </span>
+      Enter a Secret code:
+      <input
+        name="strongSecret"
+        type="text"
+        ng-model="employee.strongSecret"
+        strong-secret
+        required
+      />
+      <dir ng-messages="sampleForm.strongSecret.$error">
+        <div ng-message="numberValidator">
+          Strong secret has to contain at least 1 number
+        </div>
+        <div ng-message="uppercaseValidator">
+          Strong secret has to contain at least 1 uppercase
+        </div>
+        <div ng-message="sixCharactersValidator">
+          Strong secret has to exactly 6 characters long
+        </div>
+      </dir>
+      <input
+        type="submit"
+        ng-disabled="sampleForm.$invalid"
+        ng-click="save(employee)"
+        value="Submit"
+      />
+    </form>
+    <p>Employee Form = {{employee | json}}</p>
+    <p>Master = {{master | json}}</p>
+
+    <script type="text/javascript">
+      angular.module("app", ["ngMessages"]);
+      angular.module("app").directive("strongSecret", function() {
+        return {
+          restrict: "A",
+          require: "ng-model",
+          link: function(scope, element, attr, ctrl) {
             function customValidator(ngModelValue) {
-                if (/[A-Z]/.test(ngModelValue)) {
-                    ctrl.$setValidity('uppercaseValidator', true);
-                } else {
-                    ctrl.$setValidity('uppercaseValidator', false);
-                }
-                if (/[0-9]/.test(ngModelValue)) {
-                    ctrl.$setValidity('numberValidator', true);
-                } else {
-                    ctrl.$setValidity('numberValidator', false);
-                }
-                if (ngModelValue.length === 6) {
-                    ctrl.$setValidity('sixCharactersValidator', true);
-                } else {
-                    ctrl.$setValidity('sixCharactersValidator', false);
-                }
-                return ngModelValue;
+              if (/[A-Z]/.test(ngModelValue)) {
+                ctrl.$setValidity("uppercaseValidator", true);
+              } else {
+                ctrl.$setValidity("uppercaseValidator", false);
+              }
+              if (/[0-9]/.test(ngModelValue)) {
+                ctrl.$setValidity("numberValidator", true);
+              } else {
+                ctrl.$setValidity("numberValidator", false);
+              }
+              if (ngModelValue.length === 6) {
+                ctrl.$setValidity("sixCharactersValidator", true);
+              } else {
+                ctrl.$setValidity("sixCharactersValidator", false);
+              }
+              return ngModelValue;
             }
             ctrl.$parsers.push(customValidator);
-			
-		scope.master = {};
-		scope.save= function(employee) {
-		scope.master = angular.copy(employee);
-		alert("Form is valid")
-		};
 
-        }
-    };
-});
-
-
-		</script>
-    </body>
+            scope.master = {};
+            scope.save = function(employee) {
+              scope.master = angular.copy(employee);
+              alert("Form is valid");
+            };
+          }
+        };
+      });
+    </script>
+  </body>
 </html>

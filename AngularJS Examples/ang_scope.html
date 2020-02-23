@@ -1,28 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html ng-app="myApp">
- <head>
- <script src="public/angular/angular.min.js"></script>
- </head>
- <body>
- 
- <div ng-controller = "fruitController">
-  <h1> {{message}} </h1>
-</div>
-<div>
- <input type="text" ng-model="message">
- <h1> {{message}} </h1>
- </div>
- <script>
-   var myApp = angular.module("myApp", []);
-   
-   myApp.controller("fruitController", function($scope) {
-      $scope.message = "This is a Fruit";
-      $scope.type = "Fruit";
-   });
-   
-   myApp.controller("appleController", function($scope) {
-      $scope.message = "This is an Apple";
-   });	
-</script>
- </body>
+  <head>
+    <script src="public/angular/angular.min.js"></script>
+  </head>
+  <body>
+    <div ng-controller="fruitController">
+      <h1>{{message}}</h1>
+    </div>
+    <div>
+      <input type="text" ng-model="message" />
+      <h1>{{message}}</h1>
+    </div>
+    <script>
+      var myApp = angular.module("myApp", []);
+
+      myApp.controller("fruitController", function($scope) {
+        $scope.message = "This is a Fruit";
+        $scope.type = "Fruit";
+      });
+
+      myApp.controller("appleController", function($scope) {
+        $scope.message = "This is an Apple";
+      });
+    </script>
+  </body>
 </html>

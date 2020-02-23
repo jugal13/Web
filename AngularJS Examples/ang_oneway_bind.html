@@ -1,37 +1,33 @@
 <!DOCTYPE html>
-
 <html>
-<head>
-<title>
-AngularJs one way Binding Example
-</title>
-
-<script src="public/angular/angular.min.js"></script>
-<body>
-<div ng-app="myApp" ng-controller="myCtrl">
-    
-    {{name}}
-    ({{address}})
-	Name is <span ng-bind="name"></span>
+  <head>
+    <title>
+      AngularJs one way Binding Example
+    </title>
+  </head>
+  <script src="public/angular/angular.min.js"></script>
+  <body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+      {{name}} ({{address}}) Name is <span ng-bind="name"></span>
       <button ng-click="change()">Change</button>
-	Company Name : {{::company}}
-     
-</div>
+      Company Name : {{::company}}
+    </div>
 
-<script>
-var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope) {
-    $scope.company="INFOSYS",
-   $scope.name = 'Gloria Jane',
-    $scope.address= 'Silo Park, 9300 East Orchard Road,    Greenwood Village, CO, 80114';
-  
-    $scope.change = function() {
-	    $scope.company="WIPRO",
-        $scope.address = 'Cherry Creek State Park, 4201 S Parker Rd, Aurora, CO 80014, USA';
-        $scope.name ='Tessy Thomas';
-    };
-});
-</script>
-</body>
+    <script>
+      var app = angular.module("myApp", []);
+      app.controller("myCtrl", function($scope) {
+        ($scope.company = "INFOSYS"),
+          ($scope.name = "Gloria Jane"),
+          ($scope.address =
+            "Silo Park, 9300 East Orchard Road,    Greenwood Village, CO, 80114");
+
+        $scope.change = function() {
+          ($scope.company = "WIPRO"),
+            ($scope.address =
+              "Cherry Creek State Park, 4201 S Parker Rd, Aurora, CO 80014, USA");
+          $scope.name = "Tessy Thomas";
+        };
+      });
+    </script>
+  </body>
 </html>
-

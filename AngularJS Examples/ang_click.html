@@ -1,33 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>AngularJS Form Validation</title>
-		<script  src="public/angular/angular.min.js"></script>
-	</head>
-<body>
-<div ng-app="myapp" ng-controller="MyController">
- <form name="theForm">
- <div>
- <input type="text" name="firstName" ng-model="firstName"> <br/>
- <input type="button" value="Show first name" ng-click="showFirstName()"/>
- </div>
- </form>
-</div>
-<script>
-angular.module("myapp", [])
-.controller("MyController", function ($scope) {
- $scope.showFirstName = function(){
- if(angular.isDefined($scope.firstName)){
- alert("Name is: " + $scope.firstName);
- }else{
- alert("Name is empty, please enter a value");
- }
-
- }
-});
-</script>
-
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>AngularJS Form Validation</title>
+    <script src="public/angular/angular.min.js"></script>
+  </head>
+  <body>
+    <div ng-app="myapp" ng-controller="MyController">
+      <form name="theForm">
+        <div>
+          <input type="text" name="firstName" ng-model="firstName" /> <br />
+          <input
+            type="button"
+            value="Show first name"
+            ng-click="showFirstName()"
+          />
+        </div>
+      </form>
+    </div>
+    <script>
+      angular.module("myapp", []).controller("MyController", function($scope) {
+        $scope.showFirstName = function() {
+          if (angular.isDefined($scope.firstName)) {
+            alert("Name is: " + $scope.firstName);
+          } else {
+            alert("Name is empty, please enter a value");
+          }
+        };
+      });
+    </script>
+  </body>
 </html>

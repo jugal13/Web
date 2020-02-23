@@ -1,33 +1,30 @@
 <!DOCTYPE html>
 
 <html>
-<head>
-<title>
-AngularJs one way Binding Example
-</title>
-<script src="public/angular/angular.min.js"></script>
-
-<body>
-<div ng-app="myApp">
-<div ng-controller = "controller">
-Enter Name :
-<input type="text" ng-model="name">  </br></br>
-Your USN : {{info.usn}} </br></br>
-you entered : <h1 ng-bind="name"></h1> 
-</div>
-</div>
-<script>
-var myModule = angular.module("myApp", []);
-myModule.controller("controller", function controller ($scope)
-	{
-		$scope.info = 
-		{
-		     'usn': '1ms99cs001',
-			 'name':'xxx',
-		}
-
-	} )
-  </script>
-</body>
+  <head>
+    <title>
+      AngularJs one way Binding Example
+    </title>
+    <script src="public/angular/angular.min.js"></script>
+  </head>
+  <body>
+    <div ng-app="myApp">
+      <div ng-controller="controller">
+        Enter Name :
+        <input type="text" ng-model="name" /> <br /><br />
+        Your USN : {{info.usn}} <br /><br />
+        you entered :
+        <h1 ng-bind="name"></h1>
+      </div>
+    </div>
+    <script>
+      var myModule = angular.module("myApp", []);
+      myModule.controller("controller", function controller($scope) {
+        $scope.info = {
+          usn: "1ms99cs001",
+          name: "xxx"
+        };
+      });
+    </script>
+  </body>
 </html>
-

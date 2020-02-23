@@ -1,53 +1,59 @@
 <html>
-<head>
-	<script src="angular/angular.min.js"> </script>
-</head>
-<script> var myModule = angular.module("myApp",[])  </script>
-<body ng-app="myApp">
-    <form ng-controller='appController' ng-submit="send()">
+  <head>
+    <script src="angular/angular.min.js"></script>
+  </head>
+  <script>
+    var myModule = angular.module("myApp", []);
+  </script>
+  <body ng-app="myApp">
+    <form ng-controller="appController" ng-submit="send()">
       <!--send() function from the controller is called on form submission -->
-     
-		<label for="empid" >Employee ID: </label><br />
-            <input type="text" id="empid" ng-model="data.empid" /> <br />
-        <label for="empname">Employee Name</label><br />
-                <input type="text" id="empname" ng-model="data.empname" /> <br /> <br />        
-        <input type="submit" ng-click="Submit">
-		
-       <div><pre>{{response.data}}</pre>  </div>
-    </form>
- 
-<a href="index.html">Back</a>
-     <script>
-	 myModule.controller ("appController",
-        function appController($scope, $http) {
-            /*$http directive is used to communicate to the server */
-            $scope.data = {}
-            $scope.response = {}
-			
-            $scope.send = function () {
-                /*executed when submit is clicked*/          
-				console.log($scope.data.empname);
-                var posting = $http({
-			/*posting to /process_get  */
-                    //method: 'GET',
-                    //url: '/process_get',
-                    //params: $scope.data,
-			/*posting to /process_post*/
-                    method: 'POST',
-                    url: '/process_post',
-                    data: $scope.data,
-                    
-                }).then (function (response) {
-                    /*executed when server responds back*/
-                    console.log(response);
-                    $scope.response.data = response.data;
-                },function (error){
-					console.log(error);
-			});
-            }
-        });
-    </script>
-</body>
-</html>
 
- 
+      <label for="empid">Employee ID: </label><br />
+      <input type="text" id="empid" ng-model="data.empid" /> <br />
+      <label for="empname">Employee Name</label><br />
+      <input type="text" id="empname" ng-model="data.empname" /> <br />
+      <br />
+      <input type="submit" ng-click="Submit" />
+
+      <div><pre>{{response.data}}</pre></div>
+    </form>
+
+    <a href="index.html">Back</a>
+    <script>
+      myModule.controller("appController", function appController(
+        $scope,
+        $http
+      ) {
+        /*$http directive is used to communicate to the server */
+        $scope.data = {};
+        $scope.response = {};
+
+        $scope.send = function() {
+          /*executed when submit is clicked*/
+
+          console.log($scope.data.empname);
+          var posting = $http({
+            /*posting to /process_get  */
+            //method: 'GET',
+            //url: '/process_get',
+            //params: $scope.data,
+            /*posting to /process_post*/
+            method: "POST",
+            url: "/process_post",
+            data: $scope.data
+          }).then(
+            function(response) {
+              /*executed when server responds back*/
+              console.log(response);
+              $scope.response.data = response.data;
+            },
+            function(error) {
+              console.log(error);
+            }
+          );
+        };
+      });
+    </script>
+  </body>
+</html>

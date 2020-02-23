@@ -1,76 +1,121 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>AngularJS Form Validation</title>
-		<script  src="public/angular/angular.min.js"></script>
-	</head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>AngularJS Form Validation</title>
+    <script src="public/angular/angular.min.js"></script>
+  </head>
 
-	<body ng-app="formApp">
-		<div ng-controller="FormController">
+  <body ng-app="formApp">
+    <div ng-controller="FormController">
+      <form name="form" novalidate class="css-form">
+        Name :
+        <input
+          type="text"
+          ng-model="employee.name"
+          name="empName"
+          ng-required="true"
+        /><br /><br />
+        <div ng-show="form.$submitted || form.empName.$touched">
+          <span style="color:orange" ng-show="form.empName.$error.required"
+            >Please enter your name.</span
+          >
+        </div>
 
-			<form name="form" novalidate class="css-form">
-			
-				Name : <input type="text" ng-model="employee.name" name="empName" ng-required="true"/><br /><br />
-    				<div ng-show="form.$submitted || form.empName.$touched">
-      					<span style="color:orange" ng-show="form.empName.$error.required">Please enter your name.</span>
-    				</div>
-					
-				Designation :<input name="desig" ng-model="employee.desig" ng-minlength="5"> <br /><br />
-				<div ng-show="form.$submitted || form.desig.$touched">
-					<span style = "color:red" ng-if="!form.desig.$valid">The value is too short</span>
-					</div>
-				E-mail : <input type="email" name="empEmail" ng-model="employee.email" ng-required="true"/><br /><br />
-    				<div ng-show="form.$submitted || form.empEmail.$touched">
-      					<span style="color:orange" ng-show="form.empEmail.$error.required">Please enter an email-id.</span>
-      					<span style="color:red" ng-show="form.empEmail.$error.email">This is not a valid email.</span>
-    				</div>
-				Mobile No <input type="text" required maxlength="10" ng-pattern="/^[7-9][0-9]{9}$/" name="mobileno" ng-model="employee.mobileno" /> <br/><br/>                       
-                <span style="color:red" ng-show="form.mobileno.$dirty && form.mobileno.$invalid" class="ng-hide">   
-                   Please Enter Valid  Mobile No.!  
-                   </span>  
-				Role : <input type="radio" ng-model="employee.role" value="development" />Development
-				<input type="radio" ng-model="employee.role" value="testing" />Testing
-				<input type="radio" ng-model="employee.role" value="teaching" />Teaching <br /></br><br />
+        Designation :<input
+          name="desig"
+          ng-model="employee.desig"
+          ng-minlength="5"
+        />
+        <br /><br />
+        <div ng-show="form.$submitted || form.desig.$touched">
+          <span style="color:red" ng-if="!form.desig.$valid"
+            >The value is too short</span
+          >
+        </div>
+        E-mail :
+        <input
+          type="email"
+          name="empEmail"
+          ng-model="employee.email"
+          ng-required="true"
+        /><br /><br />
+        <div ng-show="form.$submitted || form.empEmail.$touched">
+          <span style="color:orange" ng-show="form.empEmail.$error.required"
+            >Please enter an email-id.</span
+          >
+          <span style="color:red" ng-show="form.empEmail.$error.email"
+            >This is not a valid email.</span
+          >
+        </div>
+        Mobile No
+        <input
+          type="text"
+          required
+          maxlength="10"
+          ng-pattern="/^[7-9][0-9]{9}$/"
+          name="mobileno"
+          ng-model="employee.mobileno"
+        />
+        <br /><br />
+        <span
+          style="color:red"
+          ng-show="form.mobileno.$dirty && form.mobileno.$invalid"
+          class="ng-hide"
+        >
+          Please Enter Valid Mobile No.!
+        </span>
+        Role :
+        <input
+          type="radio"
+          ng-model="employee.role"
+          value="development"
+        />Development
+        <input type="radio" ng-model="employee.role" value="testing" />Testing
+        <input type="radio" ng-model="employee.role" value="teaching" />Teaching
+        <br /><br /><br />
 
-				<input type="button" ng-click="reset()" value="Reset" />
-				
-				<input type="submit" ng-disabled="form.$invalid" ng-click="save(employee)" value="Submit" />
-			</form>
+        <input type="button" ng-click="reset()" value="Reset" />
 
-  			<p>Employee Form = {{employee | json}}</p>
-  			<p>Master = {{master | json}}</p>
-		</div>
+        <input
+          type="submit"
+          ng-disabled="form.$invalid"
+          ng-click="save(employee)"
+          value="Submit"
+        />
+      </form>
 
-	<style type="text/css">
-		.css-form input.ng-invalid.ng-touched {
-			background-color: #FA787E;
-		}
+      <p>Employee Form = {{employee | json}}</p>
+      <p>Master = {{master | json}}</p>
+    </div>
 
-		.css-form input.ng-valid.ng-touched {
-			background-color: #78FA89;
-		}
-	</style>
-	
-	<script type="text/javascript" >
-	var app = angular.module('formApp', []);
+    <style type="text/css">
+      .css-form input.ng-invalid.ng-touched {
+        background-color: #fa787e;
+      }
 
-	app.controller('FormController', function($scope) {
-		$scope.master = {};
-		
-		$scope.save= function(employee) {
-			$scope.master = angular.copy(employee);
-			alert("Form is valid")
-		};
+      .css-form input.ng-valid.ng-touched {
+        background-color: #78fa89;
+      }
+    </style>
 
-		$scope.reset = function() {
-			$scope.employee = angular.copy($scope.master);
-		};
+    <script type="text/javascript">
+      var app = angular.module("formApp", []);
 
-		$scope.reset();
-	});
-	
-	
-	</script>
-</body>
+      app.controller("FormController", function($scope) {
+        $scope.master = {};
+
+        $scope.save = function(employee) {
+          $scope.master = angular.copy(employee);
+          alert("Form is valid");
+        };
+
+        $scope.reset = function() {
+          $scope.employee = angular.copy($scope.master);
+        };
+
+        $scope.reset();
+      });
+    </script>
+  </body>
 </html>

@@ -1,26 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html ng-app="myApp">
- <head>
- <title> Angular MVC app </title>
- <script src="public/angular/angular.min.js"></script>
- </head>
- <body>
-<div ng-controller = "controller">
-  <h1> {{meal.breakfast}} </h1>
-</div>
-<script>
-var myModule = angular.module("myApp", []);
-myModule.controller("controller",
-  function controller ($scope)
-	{
-		$scope.meal = 
-		{
-		     'breakfast': 'Orange Juice',
-			 'Lunch':'Fruit Salad',
-			 'Dinner':'Vegetable Rice'
-		}
-
-	} )
-  </script>
-</body>
+  <head>
+    <title>Angular MVC app</title>
+    <script src="public/angular/angular.min.js"></script>
+  </head>
+  <body>
+    <div ng-controller="controller">
+      <h1>{{meal.breakfast}}</h1>
+    </div>
+    <script>
+      var myModule = angular.module("myApp", []);
+      myModule.controller("controller", function controller($scope) {
+        $scope.meal = {
+          breakfast: "Orange Juice",
+          Lunch: "Fruit Salad",
+          Dinner: "Vegetable Rice"
+        };
+      });
+    </script>
+  </body>
 </html>
