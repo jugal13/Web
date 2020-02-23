@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<script src="public/angular/angular.min.js"></script>
+<body ng-app="">
+Departments 
+<select ng-model="myVar">
+  <option value="cse">Computer Science & Engineering
+  <option value="ise">Information Science & Engineering
+  <option value="ec">Electronics & Communication
+</select>
+<hr>
+<div ng-switch="myVar">
+  <div ng-switch-when="cse">
+     <h1>CSE</h1>
+     <p>Welcome to CSE Dept..</p>
+  </div>
+  <div ng-switch-when="ise">
+     <h1>ISE</h1>
+     <p>Welcome to ISE Dept..</p>
+  </div>
+  <div ng-switch-when="ec">
+     <h1>EC</h1>
+     <p>Welcome to E&C Dept..</p>
+  </div>
+  <div ng-switch-default>
+     <h1>Select Departments</h1>  
+  </div>
+</div><hr>
+</body>
+</html>

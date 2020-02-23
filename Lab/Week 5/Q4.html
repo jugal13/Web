@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Week 5</title>
     <script>
-    function vehicle(name,year,vin) {
+      function vehicle(name, year, vin) {
         this.name = name;
         this.year = year;
         this.vin = vin;
-    }
-    vehicle.prototype.details = function () {
+      }
+      vehicle.prototype.details = function() {
         for (var i in this) {
-            console.log(i,this[i]);
+          console.log(i, this[i]);
         }
-    }
-    vehicle.prototype.comment = function() {
-        console.log('Fields:',this.valueOf());
-        console.log('Methods:',this.__proto__);
-    } 
-    var a = new vehicle('Honda','2008','1292871');
-    a.details();
-    a.comment();
+      };
+      vehicle.prototype.comment = function() {
+        console.log("Fields:", this.valueOf());
+        console.log("Methods:", this.__proto__);
+      };
+      var a = new vehicle("Honda", "2008", "1292871");
+      a.details();
+      a.comment();
     </script>
-</head>
-<body>
-</body>
+  </head>
+  <body></body>
 </html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>Password validation</title>
+		<script type="text/javascript" src="public/angular/angular.js"></script>
+        <script type="text/javascript" src="public/angular/angular-messages.js"></script>
+    </head>
+    <body>
+	
+        <form name="sampleForm" novalidate>
+			
+			Enter a Password: <input name="strongSecret" type="password" ng-model="employee.strongSecret" strong-secret required>
+            <dir ng-messages="sampleForm.strongSecret.$error">
+            	<div ng-message="commonValidator">Your password belongs to common password</div>
+            	
+            </dir>
+			<input type="submit" ng-disabled="sampleForm.$invalid" ng-click="save(employee)" value="Submit" />
+			
+        </form>
+		
+		
+        
+<script type="text/javascript">
+angular.module('app', ['ngMessages']);
+angular.module('app').directive('strongSecret', function() {
+    return {
+        restrict: 'A',
+        require: 'ng-model',
+        link: function(scope, element, attr, ctrl) {
+            function customValidator(ngModelValue) {
+                
+                if (ngModelValue === 'password' || ngModelValue == 'passw0rd' || ngModelValue == 'mypassword' )
+				{
+                    ctrl.$setValidity('commonValidator', false);
+                } else {
+                    ctrl.$setValidity('commonValidator', true);
+                }
+                return ngModelValue;
+            }
+            ctrl.$parsers.push(customValidator);
+			
+		scope.master = {};
+		scope.save= function(employee) {
+		scope.master = angular.copy(employee);
+		alert("Form is valid")
+		};
+
+        }
+    };
+});
+
+
+		</script>
+    </body>
+</html>

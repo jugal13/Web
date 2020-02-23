@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Week 4</title>
     <script>
-    var rankings = ['alice','bob','eve'];
-    for (var i = 0, len = rankings.length; i < len; i++) {
-        (function (i) {
-            setTimeout(function() {
+      var rankings = ["alice", "bob", "eve"];
+      for (var i = 0, len = rankings.length; i < len; i++) {
+        (function(i) {
+          setTimeout(function() {
             console.log(i, rankings[i]);
-            }, i * 10000);
+          }, i * 10000);
         })(i);
-    }
+      }
     </script>
-</head>
-<body>
-</body>
+  </head>
+  <body></body>
 </html>

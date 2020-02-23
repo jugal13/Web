@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Week 6</title>
     <script>
-    function calculator(num) {
+      function calculator(num) {
         this.num = num;
-    }
-    calculator.prototype.add = function(n) {
-        this.num +=n
+      }
+      calculator.prototype.add = function(n) {
+        this.num += n;
         return this;
-    }
-    calculator.prototype.subtract = function(n) {
+      };
+      calculator.prototype.subtract = function(n) {
         this.num -= n;
         return this;
-    }
-    calculator.prototype.getAnswer = function() {
+      };
+      calculator.prototype.getAnswer = function() {
         return this.num;
-    }
-    console.log(new calculator(2).add(2).add(2).subtract(3).getAnswer());
+      };
+      console.log(
+        new calculator(2)
+          .add(2)
+          .add(2)
+          .subtract(3)
+          .getAnswer()
+      );
     </script>
-</head>
-<body>
-</body>
+  </head>
+  <body></body>
 </html>

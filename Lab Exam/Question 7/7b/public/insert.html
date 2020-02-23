@@ -1,0 +1,37 @@
+<html>
+<head>
+	<script src='angular/angular.min.js'></script>
+	<script>
+	var myModule=angular.module("myapp",[])
+	myModule.controller('mycontroller',function($scope,$http)
+	{
+		$scope.data={}
+		$scope.response={}
+		$scope.send=function()
+		{
+			var posting=$http({
+				method:"POST",
+				url:"/process_post",
+				data:$scope.data
+			}).then(function(response)
+			{
+				console.log(response)
+				$scope.response.data=response.data
+			},function(error)
+			{
+				console.log(error)
+			})
+		}
+	})
+	</script>
+</head>
+<body ng-app="myapp" ng-controller="mycontroller">
+	<form ng-submit="send()">
+		Student Name<input type="text" ng-model="data.stuname"/><br>
+		Student USN<input type="text" ng-model="data.stuusn"/><br>
+		Grade<input type="text" ng-model="data.grade"/><br>
+		<input type="submit">
+		<div><pre>{{response.data}}<pre></div>
+	</form>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "week-10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Q1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.15.1",
+    "express-validator": "^3.1.2"
+  }
+}

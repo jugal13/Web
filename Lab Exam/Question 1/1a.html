@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <script type="text/javascript">
+    function fixStart(s) {
+      return s.slice(0,1)+s.slice(1).split(s.slice(0,1)).join('*');
+    }
+    string = 'babble';
+    console.log(string);
+    new_string = fixStart(string);
+    console.log(new_string);
+  </script>
+</body>
+</html>

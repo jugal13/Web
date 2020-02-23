@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+	<h3>STUDENT INFORMATION FORM</h3>
+</head>
+<body>
+	<form name="data">
+		Name : <input type="text" pattern="[a-zA-Z]+"><br>
+		Email : <input type="email" placeholder="abc@xyz.com"><br>
+		Phone : <input type="text" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
+		Semester : <input type="number" min=1 max=8><br>
+		Branch : <input list="dl">
+		<datalist id="dl">
+			<option value="CSE"/>
+			<option value="EC"/>
+			<option value="ISE"/>
+		</datalist><br>
+		Website : <input type="url"><br>
+		<input type="submit">
+	</form>
+</body>
+</html>

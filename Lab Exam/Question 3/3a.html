@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+	<script type="text/javascript">
+		function calculator(num)
+		{
+			this.num=num
+		}
+		calculator.prototype.Add=function(n)
+		{
+			this.num=this.num+n
+			return this
+		}
+		calculator.prototype.subtract=function(n)
+		{
+			this.num=this.num-n
+			return this
+		}
+		calculator.prototype.getAnswer=function()
+		{
+			return this.num
+		}
+
+		var ans=new calculator(2).Add(2).Add(2).subtract(4).getAnswer()
+		console.log(ans)
+	</script>
+</head>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="angular/angular.min.js"></script>
+	<script>
+	var myModule=angular.module("myapp",[])
+	myModule.controller("mycontroller",function($scope,$http)
+	{
+		$scope.data={}
+		$scope.response={}
+		$scope.send=function()
+		{
+			console.log('Sending data to Node Server')
+			console.log($scope.data.usn)
+			var sending=$http({
+				method:"POST",
+				url:"/process_post",
+				data:$scope.data
+			}).then(function(response)
+			{
+				console.log(response.data)
+				$scope.response.data=response.data
+			},function(error)
+			{
+				console.log(error)
+			})
+		}
+	})
+	</script>
+</head>
+<body ng-app="myapp" ng-controller="mycontroller">
+	<form ng-submit="send()">
+		USN<input type="text" ng-model="data.usn"><br>
+		Name<input type="text" ng-model="data.name"><br>
+		Marks<input type="text" ng-model="data.marks"><br>
+		<input type="submit">
+		<div>{{response.data}}</div>
+	</form>
+</body>
+</html>

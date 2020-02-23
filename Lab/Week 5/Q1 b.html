@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Week 5</title>
     <script>
-    var obj = {
-        title: 'Mole',
+      var obj = {
+        title: "Mole",
         servings: 2,
-        ingredients: ['cinnamon','cumin','cocoa']
-    };
-    for (var i in obj) {
-        if (typeof(obj[i])=='object'){
-            console.log(i);
-            for(var j = 0; j < obj[i].length; j++ ) {
-                console.log(obj[i][j]);
-            }
+        ingredients: ["cinnamon", "cumin", "cocoa"]
+      };
+      for (var i in obj) {
+        if (typeof obj[i] == "object") {
+          console.log(i);
+          for (var j = 0; j < obj[i].length; j++) {
+            console.log(obj[i][j]);
+          }
+        } else {
+          console.log(i, obj[i]);
         }
-        else {
-            console.log(i,obj[i])
-        }
-    }
+      }
     </script>
-</head>
-<body>
-</body>
+  </head>
+  <body></body>
 </html>

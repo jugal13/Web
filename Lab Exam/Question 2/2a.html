@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="text/javascript">
+    function sales(price) {
+      var sales_tax = 0.4
+      function net_price() {
+        var net = price + price * sales_tax;
+        console.log("Price: "+price);
+        console.log("Net Price: "+net);
+      }
+      return net_price;
+    }
+    var calc = sales(10);
+    calc();
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

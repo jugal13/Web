@@ -1,46 +1,45 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Week 3</title>
     <script type="text/javascript">
-    //Q2 a using map
-    function translate_map(s) {
+      //Q2 a using map
+      function translate_map(s) {
         lex = {
-            "merry": "god",
-            "christmas": "jul",
-            "and": "och",
-            "happy": "gott",
-            "new": "nytt",
-            "year": "år"
+          merry: "god",
+          christmas: "jul",
+          and: "och",
+          happy: "gott",
+          new: "nytt",
+          year: "år"
         };
         s = s.split(" ");
         s = s.map(ele => lex[ele]);
         s = s.join(" ");
         console.log(s);
-    }
-    translate_map("merry christmas and happy new year");
-        
-    //Q2 a without map
-    function translate(s) {
+      }
+      translate_map("merry christmas and happy new year");
+
+      //Q2 a without map
+      function translate(s) {
         lex = {
-            "merry": "god",
-            "christmas": "jul",
-            "and": "och",
-            "happy": "gott",
-            "new": "nytt",
-            "year": "år"
+          merry: "god",
+          christmas: "jul",
+          and: "och",
+          happy: "gott",
+          new: "nytt",
+          year: "år"
         };
         s = s.split(" ");
         s1 = "";
         for (i = 0; i < s.length; i++) {
-            s1 = s1 + lex[s[i]] + " ";
+          s1 = s1 + lex[s[i]] + " ";
         }
         s = s1;
         console.log(s);
-    }
-    translate("merry christmas and happy new year");
+      }
+      translate("merry christmas and happy new year");
     </script>
-</head>
-<body>
-</body>
+  </head>
+  <body></body>
 </html>

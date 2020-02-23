@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Week 3</title>
     <script type="text/javascript">
-    //Q1 b
-    function verbing(s) {
+      //Q1 b
+      function verbing(s) {
         if (s.length < 3) {
-            console.log(s);
+          console.log(s);
+        } else {
+          if (s.slice(-3) == "ing") {
+            s = `${s}ly`;
+          } else {
+            s = `${s}ing`;
+          }
+          console.log(s);
         }
-        else {
-            if (s.slice(-3) == 'ing') {
-                s = `${s}ly`
-            }
-            else {
-                s = `${s}ing`
-            }
-            console.log(s);
-        }
-    }
-    verbing('swim');
-    verbing('swimming');
-    verbing('go');
+      }
+      verbing("swim");
+      verbing("swimming");
+      verbing("go");
     </script>
-</head>
-<body>
-</body>
+  </head>
+  <body></body>
 </html>

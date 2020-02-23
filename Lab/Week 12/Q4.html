@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>4</title>
+    <script src="public/angular/angular.min.js"></script>
+    <script>
+      var myModule = angular.module("myapp", []);
+      myModule.controller("control", function($scope) {
+        $scope.status = "None";
+        $scope.guesses = 0;
+        $scope.number = Math.floor(Math.random() * 31 + 1);
+        $scope.checkGuess = function() {
+          if ($scope.number === $scope.guess) {
+            $scope.status = "equal";
+            $scope.guesses += 1;
+          } else if ($scope.number > $scope.guess) {
+            $scope.status = "less";
+            $scope.guesses += 1;
+          } else if ($scope.number < $scope.guess) {
+            $scope.status = "high";
+            $scope.guesses += 1;
+          }
+        };
+        $scope.resetCount = function() {
+          $scope.guesses = 0;
+          $scope.number = Math.floor(Math.random() * 31 + 1);
+        };
+      });
+    </script>
+  </head>
+  <body ng-app="myapp">
+    <div ng-controller="control">
+      <h3>Guess the Number</h3>
+      <p>Guess the computer generated random number between 1 and 10</p>
+      <form ng-submit="checkGuess()">
+        <input type="number" ng-model="guess" />
+        <input type="submit" value="verify" />
+        <input type="reset" value="restart" ng-click="resetCount()" />
+      </form>
+      <div ng-switch="status">
+        <div ng-switch-when="less">
+          Your guess is lower
+        </div>
+        <div ng-switch-when="high">
+          Your guess is higher
+        </div>
+        <div ng-switch-when="equal">
+          Yes! that's it
+        </div>
+      </div>
+      <p>No of guesses: {{guesses}}</p>
+    </div>
+  </body>
+</html>

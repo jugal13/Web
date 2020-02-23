@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Week 6</title>
     <script>
-    var arr = [];
-    function Animal(name, sound, speed) {
+      var arr = [];
+      function Animal(name, sound, speed) {
         this.name = name;
         this.sound = sound;
         this.speed = speed;
-    }
-    Animal.prototype.makeSound = function () {
+      }
+      Animal.prototype.makeSound = function() {
         console.log(this.sound);
-    }
-    Animal.prototype.run = function (time) {
+      };
+      Animal.prototype.run = function(time) {
         var that = this;
-        return new Promise(function (resolve, reject) {
-            setTimeout(function () {
-                console.log(that.speed * time, that.name);
-                arr.push(that.speed * time);
-            }, (time) * 100);
+        return new Promise(function(resolve, reject) {
+          setTimeout(function() {
+            console.log(that.speed * time, that.name);
+            arr.push(that.speed * time);
+          }, time * 100);
         });
-    }
-    var tiger = new Animal("tiger", 6, 2)
-    var cheetah = new Animal("cheetah", 20, 9)
-    var elephant = new Animal("elephant", 30, 5)
-    var human = new Animal("human", 20, 3)
-    var dog = new Animal("dog", 5, 4)
-    var obj = [tiger, cheetah, elephant, human, dog];
-    for (var i = 0; i < obj.length; ++i) {
-        console.log(obj[i].run(5))
-    }
-    setTimeout(function () {
-        console.log(obj[arr.indexOf(Math.max.apply(Math, arr))], 'went farthest with distance', Math.max.apply(null, arr));
-    }, 6000);
+      };
+      var tiger = new Animal("tiger", 6, 2);
+      var cheetah = new Animal("cheetah", 20, 9);
+      var elephant = new Animal("elephant", 30, 5);
+      var human = new Animal("human", 20, 3);
+      var dog = new Animal("dog", 5, 4);
+      var obj = [tiger, cheetah, elephant, human, dog];
+      for (var i = 0; i < obj.length; ++i) {
+        console.log(obj[i].run(5));
+      }
+      setTimeout(function() {
+        console.log(
+          obj[arr.indexOf(Math.max.apply(Math, arr))],
+          "went farthest with distance",
+          Math.max.apply(null, arr)
+        );
+      }, 6000);
     </script>
-</head>
-<body>
-</body>
+  </head>
+  <body></body>
 </html>

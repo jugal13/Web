@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="public/angular/angular.min.js"></script>
+  </head>
+  <body ng-controller="control">
+    <div style="border:5px solid black;">
+      MY favourite book is :<select
+        ng-init="foo = foo || items[0]"
+        ng-model="foo"
+        ng-options="item for item in items"
+      ></select>
+    </div>
+    <div ng-switch="foo">
+      <div ng-switch-when="Harry Potter">
+        <h3>Harry Potter</h3>
+        <p>The story of harry is emotional</p>
+      </div>
+      <div ng-switch-when="Chronicles of Narnia">
+        <h3>Chronicles of Narnia</h3>
+        <p>
+          The story of Chronicles of Narnia is filled with mystical creatures
+        </p>
+      </div>
+      <div ng-switch-when="Hamlet">
+        <h3>Hamlet</h3>
+        <p>i have not read this know</p>
+      </div>
+    </div>
+    <script>
+      var myModule = angular.module("myapp", []);
+      myModule.controller("control", function($scope) {
+        $scope.items = ["Harry Potter", "Chronicles of Narnia", "Hamlet"];
+      });
+    </script>
+  </body>
+</html>

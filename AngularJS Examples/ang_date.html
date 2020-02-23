@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<body>
+    <script src="public/angular/angular.min.js">
+        </script>
+
+    <div ng-app="dateApp" 
+        ng-controller="dateController">
+
+        <input type="date" id="date" ng-model="datevalue" />
+
+        <p> {{ datevalue | date : 'EEE' }} </p>
+		 <p>
+            <label>Enter a number</label>
+            <input type="text" ng-model="bid" />
+        </p>
+
+        <p> {{ bid | currency:'&#8377;' }} </p>
+    </div>
+	
+</body>
+<script>
+    var dtApp = angular.module('dateApp', []);
+    dtApp.controller('dateController',
+        function ($scope, $filter)
+        { }
+    );
+</script>

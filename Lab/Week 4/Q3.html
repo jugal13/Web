@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Week 4</title>
-    <script> 
-    function dayno(n) {
+    <script>
+      function dayno(n) {
         var conv = {
-            1: 'Sunday',
-            2: 'Monday',
-            3: 'Tuesday',
-            4: 'Wednesday',
-            5: 'Thursday',
-            6: 'Friday',
-            7: 'Saturday'
+          1: "Sunday",
+          2: "Monday",
+          3: "Tuesday",
+          4: "Wednesday",
+          5: "Thursday",
+          6: "Friday",
+          7: "Saturday"
         };
-        return function () {
-            console.log(conv[n]);
-        }
-    }
-    var dis = dayno(5);
-    dis();
+        return function() {
+          console.log(conv[n]);
+        };
+      }
+      var dis = dayno(5);
+      dis();
     </script>
-</head>
-<body>
-</body>
+  </head>
+  <body></body>
 </html>

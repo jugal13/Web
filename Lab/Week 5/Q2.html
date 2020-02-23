@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Week 5</title>
     <script>
-    function calculator(num) {
+      function calculator(num) {
         this.square = function() {
-            return num*num;
-        }
+          return num * num;
+        };
         this.cube = function() {
-            return num*num*num;
-        }
+          return num * num * num;
+        };
         this.root = function() {
-            return Math.sqrt(num);
-        }
+          return Math.sqrt(num);
+        };
         calculator.prototype.result = function() {
-            console.log('Square:',this.square());
-            console.log('Cube:',this.cube());
-            console.log('Square Root:',this.root());
-        }
-    }
-    var ans = new calculator(4);
-    ans.result();
+          console.log("Square:", this.square());
+          console.log("Cube:", this.cube());
+          console.log("Square Root:", this.root());
+        };
+      }
+      var ans = new calculator(4);
+      ans.result();
     </script>
-</head>
-<body>
-</body>
+  </head>
+  <body></body>
 </html>

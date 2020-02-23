@@ -1,0 +1,10 @@
+List of students not eligible
+<ul class="students">
+	<% for(var i=0;i<students.length;i++) {%>
+	<li class="students">
+	<span><%= "USN : " + students[i].usn %></span><br>
+	<span><%= "Name : "+students[i].name %></span><br>
+	<span><%= "Marks : "+students[i].marks %></span><br>
+	</li>
+	<%}%>
+</ul>

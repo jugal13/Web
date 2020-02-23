@@ -1,56 +1,60 @@
-html, body {
-    margin: 0;
-    text-align: justify;
-    background-color: rgba(0,0,0,0.9);
+html,
+body {
+  margin: 0;
+  text-align: justify;
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
-h1, h2, h3, p {
-    text-align: center;
+h1,
+h2,
+h3,
+p {
+  text-align: center;
 }
 
 h1 {
-    margin-top: 0;
-    padding-top: 20px;
-    color: rgb(230,160,70);
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 500;
-    font-style: italic;
+  margin-top: 0;
+  padding-top: 20px;
+  color: rgb(230, 160, 70);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-style: italic;
 }
 
 h2 {
-    color: rgb(130,60,170);
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 400;
-    font-style: oblique;
+  color: rgb(130, 60, 170);
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-style: oblique;
 }
 
 h3 {
-    color: rgb(20,160,130);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 300;
-    font-style: normal;
+  color: rgb(20, 160, 130);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 p {
-    color: rgb(0, 153, 255);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 200;
-    font-style: initial;
+  color: rgb(0, 153, 255);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 200;
+  font-style: initial;
 }
 
 ul {
-    list-style-position: inside;
+  list-style-position: inside;
 }
 
 li {
-    padding-left: 43%;
-    color: rgb(255,255,255);
+  padding-left: 43%;
+  color: rgb(255, 255, 255);
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }

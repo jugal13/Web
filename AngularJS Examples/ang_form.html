@@ -1,0 +1,18 @@
+<!doctype html>
+<html ng-app="myApp">
+ <head>
+ <script src="public/angular/angular.min.js"></script>
+ </head>
+ <body>
+ 
+ <form name="loginForm" novalidate>
+<input name="email" ng-model="email" />
+<input name="password" ng-model="password" />
+<pre>{{loginForm | json}}</pre>
+</form>
+ <script>
+   var myApp = angular.module("myApp", []);
+   
+</script>
+ </body>
+</html>

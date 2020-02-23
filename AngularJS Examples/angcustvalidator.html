@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angularjs Custom validation Demo</title>
+<script src="public/angular/angular.min.js"></script>
+
+	</head>
+<body>
+<script>
+    var app = angular.module("app", []);
+
+    app.directive('adult', function () {
+        return {
+            require: 'ngModel',
+            link: function (scope, element, attributes, control) {
+                control.$validators.adult = function (modelValue, viewValue) {
+
+                    if (control.$isEmpty(modelValue)) // if empty, correct value
+                    {
+                        return true;
+                    }
+                    
+                    var age = Number(viewValue);
+                    
+                    if (age >= 18 && age <= 100) // correct value
+                    {
+                        return true;
+                    }
+                    return false; // wrong value
+                };
+            }
+        };
+    });
+
+    app.directive('country', function ($q, $timeout) {
+        return {
+            require: 'ngModel',
+            link: function (scope, element, attributes, control) {
+                // temporary data from local variable
+                var countryNames = ['India', 'USA', 'Canada'];
+                control.$asyncValidators.country = function (modelValue, viewValue) {
+                    if (control.$isEmpty(modelValue)) {
+                        return $q.when();
+                    }
+                    
+                    var defer = $q.defer();
+
+                    // to imitate the behavior of service access
+                    // In real time, fire $http and get value then validate
+                    $timeout(function () {
+                        if (countryNames.indexOf(modelValue) === -1) // not found
+                        {
+                            defer.resolve(); // wow, this country available
+                        }
+                        else
+                        {
+                            defer.reject();
+                        }
+                    }, 1000);
+
+                    return defer.promise;
+                };
+            }
+        };
+    });
+</script>
+<div ng-app="app">
+    <form novalidate name="myForm">
+        Your age: <input type="number" name="txtAge" ng-model="age" adult />
+        <span style="color:red;" ng-show="myForm.txtAge.$error.adult">Should be => 18 and <= 100</span>
+        <hr />
+        Country : <input type="text" name="txtCountry" ng-model="myCountry" country />
+        <span style="color:red;" ng-show="myForm.txtCountry.$pending.country">Validating ....</span>
+        <span style="color:brown;" ng-show="myForm.txtCountry.$error.country">Already exists, try another</span>
+    </form>
+</div>
+</body>
+</html>

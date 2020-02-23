@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+	function testnum(num)
+	{
+		return new Promise(function(resolve,reject)
+		{
+			if(num<10)
+				resolve()
+			else
+				reject()
+		})
+
+	}
+
+	var pro=testnum(45)
+	pro.then(function()
+	{
+		console.log('The number is less than 10')
+	},function()
+	{
+		console.log('The number is greater than 10')
+	})
+	</script>
+</head>
+</html>

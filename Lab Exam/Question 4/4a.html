@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+	<script src="public/angular/angular.min.js"></script>
+	<script>
+	var mod=angular.module("myapp",[])
+	mod.controller("myctrl",function($scope)
+	{
+		$scope.name="abcd"
+		$scope.address="1223"
+		$scope.company="infosys"
+		$scope.change=function()
+		{
+			$scope.name="east"
+			$scope.address="677989"
+			$scope.company="wipro"
+		}
+	})
+	</script>
+</head>
+<body ng-app="myapp" ng-controller="myctrl">
+	Name : {{name}}
+	<br>
+	Address : {{address}}
+	<br>
+	Company : {{::company}}
+	<br>
+	<input type="button" value="change" ng-click="change()">
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<script src='public/angular/angular.min.js'></script>
+	<script>
+	var myModule=angular.module("myapp",[])
+	</script>
+</head>
+<body ng-app="myapp">
+	Select Favourite book: 
+	<select ng-model="op">
+		<option>Harry Potter</option>
+		<option>Hunger Games</option>
+		<option>Lord of the rings</option>
+	</select>
+	<div ng-switch="op">
+
+		<div ng-switch-when="Harry Potter">
+			<p>INFORMATION ABOUT THE SELECTED BOOK</p>
+			<p>Harry Potter books are .....</p>
+		</div>
+		<div ng-switch-when="Hunger Games">
+			<p>INFORMATION ABOUT THE SELECTED BOOK</p>
+			<p>The OG pubg with more bows</p>
+		</div>
+		<div ng-switch-when="Lord of the rings">
+			<p>INFORMATION ABOUT THE SELECTED BOOK</p>
+			<p>Best Fantasy series</p>
+		</div>
+	</div>
+</body>
+</html>

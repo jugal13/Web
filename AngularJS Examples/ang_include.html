@@ -1,0 +1,16 @@
+<!doctype html>
+<html ng-app="myApp">
+ <head>
+ <title> Angular include </title>
+ <script src="public/angular/angular.min.js"> </script>
+ </head>
+ <body>
+<h1>Includes in Action</h1>
+ <p> You should see the inluded files contents below</p>
+ <div ng-include="'include_me.html'"></div>
+ <script>
+ // -------------Run the server and execute-------------
+ var myModule = angular.module("myApp", []);
+ </script>
+</body>
+</html>
